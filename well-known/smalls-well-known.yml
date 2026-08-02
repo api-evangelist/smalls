@@ -1,0 +1,96 @@
+generated: '2026-08-02'
+method: probed
+source: live HTTP probes of every Smalls host in apis.yml
+host: https://www.smalls.com
+note: 'Negative result recorded for auditability. www.smalls.com is a Remix
+  single-page application served by Netlify whose router answers unknown top-level
+  paths with HTTP 200 and the homepage shell, while /.well-known/* paths return a
+  genuine 404. Every 200 below is that SPA catch-all — an HTML document, not the
+  requested resource — and none of them is a real discovery document. No pointer of
+  type WellKnown, SecurityTxt or APICatalog is wired into apis.yml, because Smalls
+  publishes none of these.'
+documents:
+- path: /.well-known/security.txt
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/openid-configuration
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/oauth-authorization-server
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/oauth-protected-resource
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/api-catalog
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/ai-plugin.json
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/agent-card.json
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/agent.json
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/ucp
+  status: 404
+  content_type: text/html
+  found: false
+- path: /.well-known/mcp
+  status: 404
+  content_type: text/html
+  found: false
+- path: /llms.txt
+  status: 200
+  content_type: text/html
+  found: false
+  note: SPA catch-all returned the homepage HTML shell, not an llms.txt
+- path: /agents.md
+  status: 200
+  content_type: text/html
+  found: false
+  note: SPA catch-all returned the homepage HTML shell, not an agents.md
+- path: /robots.txt
+  status: 200
+  content_type: text/plain
+  found: true
+  file: smalls-robots.txt
+  note: 'Real file, but it only carries "User-agent: * / Disallow:" with no sitemap
+    or AI-preference directives.'
+contract_discovery:
+  ran: '2026-08-02'
+  hosts_probed:
+  - https://smalls.com
+  - https://www.smalls.com
+  - https://api.smalls.com
+  - https://developers.smalls.com
+  - https://shop.smalls.com
+  openapi:
+    found: false
+    paths_probed: [/openapi.json, /openapi.yaml, /swagger.json, /api-docs, /docs]
+    note: 'All returned the SPA catch-all HTML shell (200) or did not resolve;
+      none parsed as OpenAPI/Swagger.'
+  graphql:
+    found: false
+    paths_probed: [/graphql, /api/graphql]
+    note: 404 on www.smalls.com; api.smalls.com does not resolve (DNS).
+  mcp:
+    found: false
+    paths_probed: [/.well-known/mcp, /api/ucp/mcp]
+  a2a:
+    found: false
+    paths_probed: [/.well-known/agent-card.json, /.well-known/agent.json]
+  dns:
+    api.smalls.com: no-resolve
+    developers.smalls.com: no-resolve
+    shop.smalls.com: no-resolve

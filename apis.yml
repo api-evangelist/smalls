@@ -1,8 +1,21 @@
 aid: smalls
 name: Smalls
-description: 'Smalls is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Smalls is a New York City based direct-to-consumer pet food company
+  founded in 2017 by Matt Michaelson and Calvin Bohn, selling gently cooked human-grade
+  fresh cat food, freeze-dried raw and treats on a personalized monthly subscription
+  that customers build through an onboarding quiz at smalls.com, shipped nationwide
+  and, since 2023, also sold into brick-and-mortar retail and wholesale. The company
+  had raised roughly $34 million as of March 2023 — including a $9M Series A round
+  announced in 2020 and a $19M Series B closed in mid-2022 — from investors including
+  Left Lane Capital, Founder Collective, Digitalis Ventures and R/GA Ventures, and
+  its shares trade on the Forge Global secondary market. Smalls runs its own Remix
+  storefront on Netlify backed by a Contentful CMS rather than a hosted commerce
+  platform, and publishes no first-party developer program: contract discovery in
+  August 2026 found no OpenAPI, Swagger, GraphQL endpoint, MCP server, A2A agent
+  card, llms.txt or /.well-known documents on any smalls.com host, and no GitHub
+  organization or public client library.'
 url: https://raw.githubusercontent.com/api-evangelist/smalls/refs/heads/main/apis.yml
+image: https://www.smalls.com/apple-touch-icon.png
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
@@ -12,6 +25,14 @@ created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
+- Pet Care
+- Pet Food
+- Ecommerce
+- Direct to Consumer
+- Subscription
+- Consumer Packaged Goods
+- Food and Beverage
+- Retail
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +40,28 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/smalls-domain-security.yml
+- type: LLMsTxt
+  url: llms/smalls-llms.txt
 - type: Website
+  url: https://www.smalls.com/
+- type: Blog
+  url: https://www.smalls.com/blog
+- type: Support
+  url: https://help.smalls.com/
+- type: SignUp
+  url: https://www.smalls.com/account/login
+- type: TermsOfService
+  url: https://www.smalls.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.smalls.com/privacy-policy
+- type: Careers
+  url: https://jobs.ashbyhq.com/smalls
+- type: SecondaryMarket
   url: https://forgeglobal.com/smalls_stock/
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v1
