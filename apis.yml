@@ -15,6 +15,17 @@ description: 'Smalls is a New York City based direct-to-consumer pet food compan
   card, llms.txt or /.well-known documents on any smalls.com host, and no GitHub
   organization or public client library.'
 url: https://raw.githubusercontent.com/api-evangelist/smalls/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.smalls.com/apple-touch-icon.png
 x-type: company
 x-source: harvest:secondary-market
